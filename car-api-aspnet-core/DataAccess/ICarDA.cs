@@ -1,13 +1,13 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using car_api_aspnet_core.Model;
 
 namespace car_api_aspnet_core.DataAccess
 {
     public interface ICarDA
     {
-        public List<int> GetAll()
-        {
-            return new List<int>(){ 10, 20, 30, 40 };
-        }
+        Task<IEnumerable<Car>> GetAll();
+        Task<Car> Get(int id);
+        Task<int> Add(Car car);
     }
 }

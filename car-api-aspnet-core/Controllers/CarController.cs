@@ -1,5 +1,9 @@
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using car_api_aspnet_core.Domain;
+using car_api_aspnet_core.Model;
 
 namespace car_api_aspnet_core.Controllers
 {
@@ -7,9 +11,9 @@ namespace car_api_aspnet_core.Controllers
     [Route("[controller]")]
     public class CarController : Controller
     {
-        CarDomain _carDomain = null;
+        private readonly ICarDomain _carDomain;
         
-        public CarController(CarDomain carDomain)
+        public CarController(ICarDomain carDomain)
         {
             _carDomain = carDomain;
         }
@@ -17,9 +21,43 @@ namespace car_api_aspnet_core.Controllers
         /*
          * Get all cars
          */
-        public ActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            return Ok(_carDomain.GetAll());
+            var result = await _carDomain.GetAll();
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
         }
+
+        /*
+         * Get car by id
+         */
+        [HttpGet("{id}")]
+        public async Task<ActionResult> Get(int id)
+        {
+            var result = await _carDomain.Get(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] Car car)
+        {
+            try
+            {
+                var result = await _carDomain.Add(car);
+                return Ok("Rows affected: " + result);
+            } catch {
+                return BadRequest();
+            }
+        }
+        
     }
 }

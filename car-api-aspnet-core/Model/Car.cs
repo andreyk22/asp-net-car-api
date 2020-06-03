@@ -12,6 +12,8 @@ namespace car_api_aspnet_core.Model
         
         public string Price { get; set; } 
         
+        public int Year { get; set; }
+        
         public int Available { get; set; }
     }
 }

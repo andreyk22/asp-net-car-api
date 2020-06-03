@@ -27,6 +27,7 @@ namespace car_api_aspnet_core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
             services.AddControllers();
 
             services.AddSingleton<ICarDA, CarDA>();

@@ -25,6 +25,20 @@
   },
   "frameworks": {
     "netcoreapp3.1": {
+      "dependencies": {
+        "Dapper": {
+          "target": "Package",
+          "version": "[2.0.35, )"
+        },
+        "Microsoft.Extensions.Configuration": {
+          "target": "Package",
+          "version": "[5.0.0-preview.4.20251.6, )"
+        },
+        "System.Data.SqlClient": {
+          "target": "Package",
+          "version": "[4.8.1, )"
+        }
+      },
       "imports": [
         "net461",
         "net462",

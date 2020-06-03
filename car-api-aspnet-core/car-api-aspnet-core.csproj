@@ -5,5 +5,11 @@
         <RootNamespace>car_api_aspnet_core</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.0.35" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0-preview.4.20251.6" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    </ItemGroup>
+
 
 </Project>
