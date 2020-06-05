@@ -5,10 +5,11 @@ using car_api_aspnet_core.Model;
 
 namespace car_api_aspnet_core.Domain
 {
-    public interface ICarDomain
+    public interface IOwnerDomain
     {
-        Task<IEnumerable<ICarResponse>> GetAll();
-        Task<ICarResponse> Get(int id);
-        Task<ICarResponse> Add(Car car);
+        Task<IEnumerable<Owner>> GetAll();
+        Task<IOwnerResponse> Get(int id);
+        
+        Task<IOwnerResponse> Add(Owner owner);
     }
 }

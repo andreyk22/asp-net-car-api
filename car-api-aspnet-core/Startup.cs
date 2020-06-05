@@ -32,6 +32,8 @@ namespace car_api_aspnet_core
 
             services.AddSingleton<ICarDA, CarDA>();
             services.AddSingleton<ICarDomain, CarDomain>();
+            services.AddSingleton<IOwnerDA, OwnerDA>();
+            services.AddSingleton<IOwnerDomain, OwnerDomain>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

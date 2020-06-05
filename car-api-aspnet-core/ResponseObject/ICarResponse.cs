@@ -1,6 +1,8 @@
-namespace car_api_aspnet_core.Model
+using car_api_aspnet_core.Model;
+
+namespace car_api_aspnet_core.Interfaces
 {
-    public class Car
+    public class ICarResponse
     {
         public int Id { get; set; }
         
@@ -15,8 +17,6 @@ namespace car_api_aspnet_core.Model
         public int Year { get; set; }
         
         public int Available { get; set; }
-        
-        public int OwnerId { get; set; }
-        
+        public Owner Owner { get; set; }
     }
 }
