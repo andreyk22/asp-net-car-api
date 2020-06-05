@@ -47,7 +47,10 @@ namespace car_api_aspnet_core.DataAccess
                     return owner;
                 }, new {Id = id}, splitOn: "Id");
                 var response = result.FirstOrDefault();
-                response.Cars = carsToBeAdded;
+                if (response != null)
+                {
+                    response.Cars = carsToBeAdded;    
+                }
                 return response;
             }
         }
